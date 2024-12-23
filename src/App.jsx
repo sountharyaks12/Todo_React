@@ -37,7 +37,7 @@ export default function App() {
 
     return (
         <>
-            <h1>Todo App </h1>
+            <h1>Todo App {state.length}</h1>
             <label htmlFor="task">Enter Todo</label>
             <input
                 type="text"
