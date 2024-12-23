@@ -53,7 +53,7 @@ export default function App() {
                     <button onClick={addTodo}>Add</button>
                     <ol >
                         {state.map(todo => (
-                            <li key={todo.id}>{todo.name}</li>
+                            <li key={todo.id} style={{marginTop:'10px'}}>{todo.name}</li>
                         ))}
                     </ol>
                 </div> 
