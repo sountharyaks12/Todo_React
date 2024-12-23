@@ -6,7 +6,7 @@ const reducer = (state, action) => {
         case "addTodo":
             console.log("add todo");
             return [
-                ...state, { id: Date.now(), name: action.todo } 
+                ...state, { id: Date.now(), name: action.todo }
             ];
         default:
             return state;
@@ -21,15 +21,15 @@ export default function App() {
 
     const handleChange = (e) => {
         if (e.key === "Enter") {
-            if (inputValue.trim()) { 
+            if (inputValue.trim()) {
                 dispatch({ type: "addTodo", todo: inputValue });
-                setInputValue(''); 
+                setInputValue('');
             }
         }
     };
 
     const addTodo = () => {
-        if (inputValue.trim()) { 
+        if (inputValue.trim()) {
             dispatch({ type: "addTodo", todo: inputValue }); // Changed payload to todo
             setInputValue('');
         }
@@ -37,24 +37,26 @@ export default function App() {
 
     return (
         <>
-            <h1>Todo App {state.length}</h1>
-            <label htmlFor="task">Enter Todo</label>
-            <input
-                type="text"
-                id='task'
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)} 
-                onKeyDown={handleChange}
-                placeholder='Enter todo'
-                style={{ width: '200px' }} // Increased width for better usability
-            />
-        
-            <button onClick={addTodo}>Add</button>
-            <ul>
-                {state.map(todo => (
-                    <li key={todo.id}>{todo.name}</li>
-                ))}
-            </ul>
+            <div style={{backgroundColor:'pink'}}>
+                <h1>Todo App {state.length}</h1>
+                <label htmlFor="task">Enter Todo</label>
+                <input
+                    type="text"
+                    id='task'
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={handleChange}
+                    placeholder='Enter todo'
+                    style={{ width: '200px' }} // Increased width for better usability
+                />
+
+                <button onClick={addTodo}>Add</button>
+                <ul>
+                    {state.map(todo => (
+                        <li key={todo.id}>{todo.name}</li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 }
