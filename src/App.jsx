@@ -36,27 +36,28 @@ export default function App() {
     };
 
     return (
-        <>
-            <div style={{backgroundColor:'pink'}}>
-                <h1>Todo App {state.length}</h1>
-                <label htmlFor="task">Enter Todo</label>
-                <input
-                    type="text"
-                    id='task'
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={handleChange}
-                    placeholder='Enter todo'
-                    style={{ width: '200px' }} // Increased width for better usability
-                />
+        <div style={{overflow:'scroll', display: 'flex',justifyContent:'center',alignItems:'center', backgroundColor: '#313547',color:'white', height: '90vh' }}>
+            <div style={{maxHeight:'140px',marginBottom:'30px',padding:'10px'}} >
+                <div style={{border:'2px solid white',borderRadius:'10px',padding:'10px 20px'}}>   <h1>Todo App {state.length}</h1>
+                    <label htmlFor="task">Enter Todo</label><br></br><br />
+                    <input
+                        type="text"
+                        id='task'
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyDown={handleChange}
+                        placeholder='Enter todo'
+                         
+                    />
 
-                <button onClick={addTodo}>Add</button>
-                <ul>
-                    {state.map(todo => (
-                        <li key={todo.id}>{todo.name}</li>
-                    ))}
-                </ul>
-            </div>
-        </>
+                    <button onClick={addTodo}>Add</button>
+                    <ol >
+                        {state.map(todo => (
+                            <li key={todo.id}>{todo.name}</li>
+                        ))}
+                    </ol>
+                </div> 
+                </div>
+        </div>
     );
 }
